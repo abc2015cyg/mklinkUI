@@ -6,9 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>362</width>
-    <height>162</height>
+    <width>406</width>
+    <height>189</height>
    </rect>
+  </property>
+  <property name="acceptDrops">
+   <bool>false</bool>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -25,10 +28,17 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit"/>
+       <widget class="MyLineEdit" name="leFrom">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="dragEnabled">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="pbFrom">
         <property name="text">
          <string>选择</string>
         </property>
@@ -46,10 +56,14 @@
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_2"/>
+       <widget class="QLineEdit" name="leTo">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="pbTo">
         <property name="text">
          <string>选择</string>
         </property>
@@ -58,12 +72,97 @@
      </layout>
     </item>
     <item>
-     <widget class="QTableWidget" name="tableWidget"/>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pbParameterJ">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="whatsThis">
+          <string>JUNCTION（交接点），当用户请求时，所有的处理都将映射到远端的服务器，再由服务器来进行实际的操作。对其内文件和子目录的“建立、删除、修改”等操作都被映射到对应的目录中的文件和子目录上；而对其进行“复制、粘贴、剪切、配置 ACL”，只会影响此交接点（对这句的理解可以参考实验1的结果）。</string>
+         </property>
+         <property name="text">
+          <string>\J</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pbParameterD">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="whatsThis">
+          <string>SYMLINKD（符号链接），当用户请求时，使用本地系统对其进行处理，不论这个链接指向的是不是本地路径。对其的“读、写、遍历”等操作都会被重定向到目标文件或目录；但对它们的“复制、删除、移动、配置 ACL”等操作只针对自身；符号链接不但可以应用于本地系统，还可以应用 UNC 路径（可以链接Samba）。</string>
+         </property>
+         <property name="text">
+          <string>\D</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pbParameterH">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>\H</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
     </item>
    </layout>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>406</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>MyLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>mylineedit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
