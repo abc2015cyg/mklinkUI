@@ -126,6 +126,7 @@ void MainWindow::runMklink(QStringList arguments)
         QByteArray error = process.readAllStandardError();
         if(!error.isEmpty()) {
             QMessageBox::information(this,tr("mklink"),QString::fromLocal8Bit(error));
+            //在error中出现\0时可能会转换QString错误
 //            const int size = error.size()/sizeof(wchar_t);
 //            wchar_t *t = new wchar_t[size+1];               //+1为了添加'\0'
 //            wcsncpy(t,(const wchar_t*)error.data(),size);
@@ -151,4 +152,14 @@ void MainWindow::on_pbParameterH_clicked()
 {
     runMklink(QStringList()<<"/H"
               <<ui->leTo->text().trimmed()<<ui->leFrom->text().trimmed());
+}
+
+void MainWindow::on_actionAboutQt_triggered()
+{
+    QMessageBox::aboutQt(this);
+}
+
+void MainWindow::on_actionAbout_triggered()
+{
+    QMessageBox::about(this,tr("关于"),QString("<a href = www.github.com/abc2015cyg/mklinkui>源代码</a>"));
 }

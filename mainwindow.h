@@ -23,6 +23,8 @@ private slots:
     void on_pbParameterJ_clicked();
     void on_pbParameterD_clicked();
     void on_pbParameterH_clicked();
+    void on_actionAboutQt_triggered();
+    void on_actionAbout_triggered();
 
 private:
     bool verificationPermission(void);      //检测用户是否拥有mklink所需的高权限或可以提升权限（/D参数需要）

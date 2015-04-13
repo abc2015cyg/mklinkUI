@@ -13,7 +13,8 @@ int main(int argc, char *argv[])
     if(!systeEvnDetection())
     {
         if(QMessageBox::No ==
-          QMessageBox::question(0,QObject::tr("系统版本检测"),QObject::tr("当前系统版本可能不被支持，是否继续"))) {
+           QMessageBox::question(0,QObject::tr("系统版本检测"),
+                                   QObject::tr("当前系统版本可能不被支持，是否继续"))) {
             return 0;
         }
     }
@@ -27,6 +28,7 @@ bool systeEvnDetection()
 {
     switch(QSysInfo::windowsVersion())
     {
+        //等待加入win10支持
 //        case QSysInfo::WV_WINDOWS10 :
         case QSysInfo::WV_WINDOWS8_1 :
         case QSysInfo::WV_WINDOWS8 :
